@@ -1,6 +1,6 @@
 class Day2
   def self.process(opcode)
-    output_opcode = opcode
+    output_opcode = opcode.dup
     opcode.each_with_index do |value, index|
       next unless index % 4 == 0
       break if value == 99
