@@ -1,4 +1,5 @@
 require './day2'
+require '../main'
 
 opcode_1 = %w(1 9 10 3 2 3 11 0 99 30 40 50).map(&:to_i)
 result_1 = %w(3500 9 10 70 2 3 11 0 99 30 40 50).map(&:to_i)
@@ -26,6 +27,8 @@ r3 = Day2.process(opcode_3)
 r4 = Day2.process(opcode_4)
 r5 = Day2.process(opcode_5)
 
+input = Main::DAY2
+
 p "PART 1"
 p "Tests"
 p r1 == result_1
@@ -35,27 +38,24 @@ p r4 == result_4
 p r5 == result_5
 
 p "Results"
-final_result = Day2.process(opcode_part_1)
-other_final_result = Day2.other_process(opcode_part_1)
+final_result = Day2.process(input)
 p 7210630 == final_result[0]
-p 7210630 == other_final_result[0]
 p final_result
-p other_final_result
-# p "----------"
-# p "PART 2"
-# p "Tests"
-# p "Resutls"
+p "----------"
+p "PART 2"
+p "Tests"
+p "Resutls"
 
-# (0..99).each do |noun|
-#   (0..99).each do |verb|
-#     opcode = opcode_part_2.dup
-#     opcode[1] = noun
-#     opcode[2] = verb
-#     result = Day2.process(opcode)
-#     if result[0] == 19690720
-#       p [noun, verb]
-#       p 100 * noun + verb
-#       break
-#     end
-#   end
-# end
+(0..99).each do |noun|
+  (0..99).each do |verb|
+    opcode = input.dup
+    opcode[1] = noun
+    opcode[2] = verb
+    result = Day2.process(opcode)
+    if result[0] == 19690720
+      p [noun, verb]
+      p 100 * noun + verb
+      break
+    end
+  end
+end
