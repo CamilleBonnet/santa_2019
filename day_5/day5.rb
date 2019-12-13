@@ -1,8 +1,9 @@
 class Day5
-  def self.process(code, first_input)
+  def self.process(code, inputs)
     @output_code = code.dup
     output = []
     i = 0
+    input_nb = 0
 
     while i < @output_code.size
       @parameter_mode = @output_code[i]
@@ -19,7 +20,8 @@ class Day5
         i += 4
       when 3
         input_index = index_position_or_immediate(2, i)
-        @output_code[input_index] = first_input
+        @output_code[input_index] = inputs[input_nb]
+        input_nb += 1
         i += 2
       when 4
         output_index = index_position_or_immediate(2, i)
